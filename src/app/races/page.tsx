@@ -36,7 +36,20 @@ export default function RacesPage() {
         className='my-4'
       />
       {error && <p className='text-red-600'>{error}</p>}
-      {visibleRaces.map((race) => (
+
+      {/* Race count / no matches message */}
+      {visibleRaces.length === 0 ? (
+        <p className='mb-4'>No races match your search</p>
+      ) : (
+        <p className='mb-4'>
+          {visibleRaces.length === 1
+            ? '1 race found'
+            : `${visibleRaces.length} races found`}
+        </p>
+      )}
+
+      {/* Only show list if races are present */}
+      {visibleRaces.length > 0 && visibleRaces.map((race) => (
         <RaceCard key={race.id} race={race} />
       ))}
     </main>
