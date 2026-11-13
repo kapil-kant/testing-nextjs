@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc",
+  "root": true,
+  "extends": [
+    "airbnb-base",
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "error",
+    "linebreak-style": "off",
+    "eol-last": "off",
+    "semi": "off",
+    "no-unused-vars": "error"
+  },
+  "settings": {
+    "next": {
+      "rootDir": true
+    },
+    "react": { "version": "detect" }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "plugins": ["@typescript-eslint", "unused-imports"],
+      "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "next/core-web-vitals"],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "parser": "@typescript-eslint/parser",
+      "rules": {
+        "react/function-component-definition": "off",
+        "react/destructuring-assignment": "off",
+        "react/require-default-props": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "@next/next/no-img-element": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "no-restricted-syntax": ["error", "ForInStatement", "LabeledStatement", "WithStatement"],
+        "import/prefer-default-export": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "jsx-quotes": "off",
+        "@typescript-eslint/semi": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "linebreak-style": "off",
+        "eol-last": "off",
+        "react/jsx-no-bind": "off",
+        "object-curly-newline": "off",
+        "operator-linebreak": "off",
+        "max-len": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "import/no-restricted-paths": [
+          "error",
+          {
+            "zones": [
+              {
+                "target": "./src/features",
+                "from": "./src/app",
+                "message": "Domain features must not import from app pages."
+              },
+              {
+                "target": "./src/infrastructure",
+                "from": "./src/features",
+                "message": "Infrastructure modules must not import from features."
+              },
+              {
+                "target": "./src/infrastructure",
+                "from": "./src/app",
+                "message": "Infrastructure modules must not import from app pages."
+              },
+              {
+                "target": "./src/constants",
+                "from": "./src/features",
+                "message": "Constants must not import from features."
+              },
+              {
+                "target": "./src/constants",
+                "from": "./src/infrastructure",
+                "message": "Constants must not import from infrastructure."
+              },
+              {
+                "target": "./src/constants",
+                "from": "./src/app",
+                "message": "Constants must not import from app pages."
+              },
+              {
+                "target": "./src/types",
+                "from": "./src/features",
+                "message": "Types must not import from features."
+              },
+              {
+                "target": "./src/types",
+                "from": "./src/infrastructure",
+                "message": "Types must not import from infrastructure."
+              },
+              {
+                "target": "./src/types",
+                "from": "./src/app",
+                "message": "Types must not import from app pages."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
