@@ -22,9 +22,11 @@ export default function RacesPage() {
       .catch(() => setError('Could not load races. Please try again.'))
   }, [])
 
-  const visibleRaces = races.filter((race) =>
-    race.name.toLowerCase().includes(searchText.toLowerCase()),
-  )
+  const visibleRaces = races
+    .filter((race) =>
+      race.name.toLowerCase().includes(searchText.toLowerCase()),
+    )
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
   return (
     <main className='p-8'>
